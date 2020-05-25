@@ -7,6 +7,7 @@ This plugin adds comment feature to a GatsbyJS website.
 [See it here](private-blog.netlify.app/)
 
 ## Installation
+
 ```bash
 npm install gatsby-plugin-commentator
 // or
@@ -37,4 +38,7 @@ Lastly, make a DOM element available at any component rendered with `id="comment
 That's all!
 
 ## NOTE.
-To have fresh comments, the server has to be restarted.
+
+To load fresh comments, the server has to be restarted.
+
+<small>Built with 💕💕💕 by [Aleem Isiaka](https://aleemisiaka.com)</small>
