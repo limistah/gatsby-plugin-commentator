@@ -11,5 +11,12 @@
   },
   "dependencies": {
     "axios": "^0.19.2"
-  }
+  },
+  "keywords": [
+    "gatsby",
+    "comment",
+    "jekyll",
+    "plugin",
+    "gatsby comment"
+  ]
 }
