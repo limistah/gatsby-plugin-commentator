@@ -1,4 +1,14 @@
 {
+  "name": "gatsby-plugin-commentator",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/limistah/gatsby-plugin-commentator"
+  },
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/limistah/gatsby-plugin-commentator/issues"
+  },
   "dependencies": {
     "axios": "^0.19.2"
   }
