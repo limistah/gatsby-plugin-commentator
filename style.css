@@ -1,0 +1,16 @@
+#commentContainer {
+}
+
+.comment-form {
+  display: grid;
+}
+
+.feedback.running {
+  color: "violet";
+}
+.feedback.error {
+  color: "tomato";
+}
+.feedback.success {
+  color: "success";
+}
