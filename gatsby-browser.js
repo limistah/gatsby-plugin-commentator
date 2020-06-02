@@ -67,6 +67,7 @@ const getCommentsForPage = async (slug) => {
 
 exports.onRouteUpdate = async ({ location, prevLocation }, pluginOptions) => {
   const commentContainer = document.getElementById("commentContainer");
+  const commentForm = document.getElementById("body .comment-form");
   if (commentContainer && location.path !== "/") {
     const header = createEl("h2");
     header.innerHTML = "Comments";
@@ -85,52 +86,52 @@ exports.onRouteUpdate = async ({ location, prevLocation }, pluginOptions) => {
         return comment;
       });
     }
-  }
 
-  document
-    .querySelector("body .comment-form")
-    .addEventListener("submit", async function (event) {
-      event.preventDefault();
-      updateFeedback();
-      const name = document.querySelector(".name-input").value;
-      const comment = document.querySelector(".comment-input").value;
-      if (!name) {
-        return updateFeedback("Name is required");
-      }
-      if (!comment) {
-        return updateFeedback("Comment is required");
-      }
-      updateFeedback("Saving comment", "info");
-      const btn = document.querySelector(".comment-btn");
-      btn.disabled = true;
-      const data = {
-        name,
-        content: comment,
-        slug: location.pathname,
-        website: pluginOptions.website,
-      };
-
-      fetch(
-        "https://cors-anywhere.herokuapp.com/gatsbyjs-comment-server.herokuapp.com/comments",
-        {
-          body: JSON.stringify(data),
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
+    document.addEventListener("submit", function (event) {
+      if (event.target && event.target.className == "comment-form") {
+        event.preventDefault();
+        updateFeedback();
+        const name = document.querySelector(".name-input").value;
+        const comment = document.querySelector(".comment-input").value;
+        if (!name) {
+          return updateFeedback("Name is required");
         }
-      ).then(async function (result) {
-        const json = await result.json();
-        btn.disabled = false;
-
-        if (!result.ok) {
-          updateFeedback(json.error.msg, "error");
-        } else {
-          document.querySelector(".name-input").value = "";
-          document.querySelector(".comment-input").value = "";
-          updateFeedback("Comment has been saved!", "success");
+        if (!comment) {
+          return updateFeedback("Comment is required");
         }
-      });
+        updateFeedback("Saving comment", "info");
+        const btn = document.querySelector(".comment-btn");
+        btn.disabled = true;
+        const data = {
+          name,
+          content: comment,
+          slug: location.pathname,
+          website: pluginOptions.website,
+        };
+
+        fetch(
+          "https://cors-anywhere.herokuapp.com/gatsbyjs-comment-server.herokuapp.com/comments",
+          {
+            body: JSON.stringify(data),
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          }
+        ).then(async function (result) {
+          const json = await result.json();
+          btn.disabled = false;
+
+          if (!result.ok) {
+            updateFeedback(json.error.msg, "error");
+          } else {
+            document.querySelector(".name-input").value = "";
+            document.querySelector(".comment-input").value = "";
+            updateFeedback("Comment has been saved!", "success");
+          }
+        });
+      }
     });
+  }
 };

@@ -10,7 +10,7 @@ exports.sourceNodes = async (
   const typeDefs = `
     type CommentServer implements Node {
       _id: String
-      author: String
+      name: String
       string: String
       website: String
       content: String
