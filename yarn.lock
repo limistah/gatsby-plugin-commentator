@@ -23,6 +23,13 @@ follow-redirects@1.5.10:
   dependencies:
     debug "=3.1.0"
 
+gatsby-plugin-commentator@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-commentator/-/gatsby-plugin-commentator-0.1.1.tgz#c94cea457d8632208799208ba58cb6046729349f"
+  integrity sha512-MtVKDJ7lJ4iJm9te4T0iHFqlFVfobSYk82d9PR68oarOR50pfKRvMZBFTEUppogobcy1U01oPY81/HL+aM7FsA==
+  dependencies:
+    axios "^0.19.2"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"

@@ -4,7 +4,7 @@ This plugin adds comment feature to a GatsbyJS website.
 
 ## Demo
 
-[See it here](private-blog.netlify.app/)
+[See it here](https://private-blog.netlify.app/)
 
 ## Installation
 
