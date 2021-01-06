@@ -10,7 +10,7 @@
     "url": "https://github.com/limistah/gatsby-plugin-commentator/issues"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "gatsby-plugin-commentator": "^0.1.1"
   },
   "keywords": [
